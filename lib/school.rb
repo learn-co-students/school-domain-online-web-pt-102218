@@ -3,6 +3,7 @@ require "pry"
 class School
 
 attr_accessor :roster
+attr_reader :name
 
 def initialize(new)
    @roster = {}
@@ -10,21 +11,12 @@ def initialize(new)
  end
 
  def add_student(name, grade)
-    @roster[grade] = []
-     if @roster[grade]||= grade
+     @roster[grade]||= []
      @roster[grade] << name
-   end
  end
 
-
- def grade(grades)
-   @roster[grades]
- end
-
- def sort
-   @roster.map do |key, value|
-  end
-    return @roster
- end
+def grade(grade)
+  @roster[grade]
+end
 
  end
