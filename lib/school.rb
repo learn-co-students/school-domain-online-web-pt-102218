@@ -9,8 +9,8 @@ class School
   end
   
   
-  def add_student(grade, name)
-     if @roster.include?(grade)
+  def add_student(name, grade)
+     if @roster[grade]
        @roster[grade] << name
        else @roster[grade] = []
        @roster[grade] = [name]
@@ -20,11 +20,15 @@ class School
 
   
   def grade(grade)
+    roster[grade]
   end
   
-  def sort(hash)
-    hash.each do |name|
-      name.sort a<=>b
+  def sort
+    roster.each do |grade, value|
+      value.sort! do |a, b|
+        a<=>b
+      end
     end
   end
+    @roster
 end
