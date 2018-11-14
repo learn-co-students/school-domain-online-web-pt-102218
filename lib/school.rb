@@ -16,9 +16,12 @@ def grade(student_grade)
    @roster[student_grade]
 end
 
-def sort
-  grades = Hash[ grade.sort_by { |key, val| val ]
-  return grades
-end
 
+  def sort
+    sorted = {}
+    roster.each do |grade, students|
+      sorted[grade] = students.sort
+    end
+    sorted
+  end
 end
